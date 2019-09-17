@@ -1,1 +1,4 @@
-/*Empty*/
+html { scroll-behavior: smooth; }
+body { position: relative; }
+
+[id^=section] {padding-top: 50px; margin: 10px; border-radius: 10px; height: 500px; }
