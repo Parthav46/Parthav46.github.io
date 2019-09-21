@@ -1,3 +1,22 @@
-body { position: relative; }
+body { position: relative; overflow-y: scroll;}
 
-[id^=section] {padding-top: 50px; margin: 10px; border-radius: 10px; height: 500px; }
+/*home title styles*/
+.home {
+    font-size: 4vh;
+    font-weight: bolder;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.home:hover {
+    cursor: pointer;
+}
+
+/*navbar resizing*/
+.nav-link {font-weight: bold; font-size: 2vh; padding: 1vh 1vh}
+.navbar-toggler {padding:1.5vh; border-radius: 15%; font-size: 2.5vh}
+.navbar {padding: 2vh 1vh;}
+
+/*section styles*/
+.main {position: relative; top:10vh;}
+.section {margin: 20px; max-width: 97vw}
+.section > .holder {top: -130px; height: 1px; padding: 0; margin: 0; position: relative}
