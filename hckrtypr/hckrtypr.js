@@ -647,13 +647,10 @@ $(function () {
     $("#console").keydown(function (ev) {
         let k = ev.which;
         console.log(k);
-        if(k !== 8){
-            let console = $("#console").get(0);
-            let content = console.value;
-            content = content.substring(0, content.length-1);
-            content += code.substring(0,5);
-            code = code.substring(5, code.length-1);
-            console.value = content;
+        if (k === 8) {
+            return;
         }
+        let c = $("#console").get(0);
+        c.value = code.substring(0, c.value.length + 4);
     });
 });
