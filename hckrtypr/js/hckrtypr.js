@@ -51,7 +51,7 @@ $(function () {
             case 8: // Backspace key
                 return;
         }
-        if(k >= 32 && k <= 126) ev.preventDefault();
+        if(k >= 32 && k <= 90) ev.preventDefault();
         c.value = code.substring(0, c.value.length + 4);
         c.scrollTop = c.scrollHeight;
     });
