@@ -3,8 +3,6 @@ name: Build and Deploy Site
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "develop" ]
   workflow_dispatch:
 
 permissions:
