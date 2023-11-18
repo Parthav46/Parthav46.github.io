@@ -3,26 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Root Terminal</title>
-
-
-<!--    JQuery script-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-<!--    Font Awesome Kit script-->
-    <script src="https://kit.fontawesome.com/cdf9c7e36b.js"></script>
-
-<!--    Material Icons CSS-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<!--    Custom CSS & Javascript-->
-    <link rel="stylesheet" href="terminal.css">
-    <script src="js/hckrtypr.js" type="module"></script>
+    <link rel="stylesheet" href="../css/terminal.css">
+    <script src="../js/hckrtypr/hckrtypr.js" type="module"></script>
 </head>
 <body>
 <div class="main">
     <textarea id="console" class="console"></textarea>
 </div>
-<div class="modal">
+<div class="modal" id="modal">
     <div id="access" class="message denied">
         Access Denied
     </div>
