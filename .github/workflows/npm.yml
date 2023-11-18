@@ -1,13 +1,22 @@
-name: NodeJS
+name: Build and Deploy Site
 
 on:
   push:
     branches: [ "master" ]
-  pull-request:
+  pull_request:
     branches: [ "develop" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
+    environment:
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -15,7 +24,8 @@ jobs:
         node-version: [18.x]
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -27,8 +37,15 @@ jobs:
         npm install
         npm run build
     
-    - name: Deploy
+    - name: Upload Artifact
       uses: actions/upload-pages-artifact@v2
       with:
-        name: "production"
+        name: "build"
         path: "build/"
+    
+    - name: Deploy
+      id: deployment
+      uses: actions/deploy-pages@v2
+      with:
+        artifact_name: 'build'
+
