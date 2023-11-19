@@ -1,11 +1,12 @@
 import React from 'react';
+import ThemeManager from '../components/ThemeManager';
 
 function App ()
 {
     return (
-        <>
-            Test.
-        </>
+        <ThemeManager>
+            <></>
+        </ThemeManager>
     )
 }
 

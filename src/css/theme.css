@@ -7,3 +7,15 @@
   --background-color: #fff;
   --color: #282c34
 }
+
+.base {
+  transition: background-color 0.2s, color 0.2s; /* For fade effect while theme change */
+  background-color: var(--background-color);
+  font-size: calc(10px + 2vmin);
+  color: var(--color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

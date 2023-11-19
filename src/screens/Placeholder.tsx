@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import logo from '../images/logo.svg';
 import '../css/Placeholder.css';
 import ThemeManager, { ThemeManagerRefType } from '../components/ThemeManager';
-import '../css/theme.css';
 
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
   return (
     <ThemeManager ref={themeRef}>
       <div className="App">
-        <header className="App-header">
+        <header>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Site under Construction!!!

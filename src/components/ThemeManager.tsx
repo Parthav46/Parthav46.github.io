@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ReactNode, useImperativeHandle, forwardRef, ForwardedRef } from 'react';
+import '../css/theme.css';
 
 
 const Theme = {
@@ -13,10 +14,11 @@ export type ThemeManagerRefType = {
 }
 
 type ThemeManagerProps = {
-    children: ReactNode
+    children: ReactNode,
+    className?: String
 }
 
-const ThemeManager = forwardRef(({children}: ThemeManagerProps, ref: ForwardedRef<ThemeManagerRefType>) => {
+const ThemeManager = forwardRef(({children, className = ""}: ThemeManagerProps, ref: ForwardedRef<ThemeManagerRefType>) => {
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
     systemTheme.addEventListener('change', (ev: MediaQueryListEvent) => {
     changeTheme(ev.matches ? Theme.DARK : Theme.LIGHT)
@@ -38,7 +40,7 @@ const ThemeManager = forwardRef(({children}: ThemeManagerProps, ref: ForwardedRe
     }, [theme]);
 
     return (
-        <div className={theme}>
+        <div className={['base',theme,className.split(' ')].join(' ').trim()}>
             {children}
         </div>
     )
