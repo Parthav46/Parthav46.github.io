@@ -17,7 +17,7 @@ function App() {
   return (
     <ThemeManager ref={themeRef}>
       <div className="App">
-        <header>
+        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Site under Construction!!!
