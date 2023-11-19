@@ -1,0 +1,29 @@
+.Header { 
+    display: flex;
+    flex-direction: row;
+    background-color: var(--main-dark);
+    height: calc(40px + 2vmin);
+    justify-content: flex-end;
+    align-items: stretch;
+    position: sticky;
+    top: 0;
+}
+
+.Header span {
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    border-bottom: var(--font-color) 4px solid;
+}
+
+.Header span:hover {
+    cursor: pointer;
+}
+
+.Header span:hover,
+.Header span.selected {
+    background-color: var(--main);
+    color: var(--primary);
+    border-bottom: var(--primary) 4px solid;
+}
+
