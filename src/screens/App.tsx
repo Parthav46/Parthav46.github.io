@@ -1,36 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import logo from '../images/logo.svg';
-import '../css/App.css';
-import '../css/theme.css';
+import React, { useEffect, useState } from 'react';
+import ThemeManager from '../components/ThemeManager';
+import Header, { HeaderObjectType } from '../components/Header';
+import { default as PApp } from './Placeholder';
 
-const Theme = {
-  LIGHT: 'light',
-  DARK: 'dark'
-};
+function App ()
+{
+    const [components, updateComponent] = useState<{[key: string]: HeaderObjectType}>({
+        'bio': { title: 'Bio' },
+        'skills': { title: 'Skills' },
+        'experience': { title: 'Experience' },
+        'projects': { title: 'Projects' }
+    });
 
-function App() {
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
-  systemTheme.addEventListener('change', (ev: MediaQueryListEvent) => {
-    changeTheme(ev.matches ? Theme.DARK : Theme.LIGHT)
-  });
-  const [theme, changeTheme] = useState(systemTheme.matches ? Theme.DARK : Theme.LIGHT);
+    useEffect(() => {
+        focusSection('bio')
+    }, []);
 
-  useEffect(() => {
-    theme && localStorage.setItem('theme', theme);
-  }, [theme]);
+    const focusSection = (id: string): void => {
+        let updatedComponent: {[key: string]: HeaderObjectType} = {};
+        Object.entries(components).forEach(([key, value]) => {
+            let isSelected = key === id;
+            updatedComponent[key] = { ...value, isSelected: isSelected };
+        });
+        updateComponent(updatedComponent);
+    }
 
-  return (
-    <div className={"App, " + theme}>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Site under Construction!!!
-        </p>
-        <span className="App-link" onClick={() => changeTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)}>
-          Toggle Theme
-        </span>
-      </header>
-    </div>
-  );
+    return (
+        <>
+        {process.env.NODE_ENV === "production" && <PApp />}
+        {process.env.NODE_ENV !== "production" &&
+            <ThemeManager>
+                <Header headers={components} onHeaderSelect={focusSection} />
+            </ThemeManager>
+        }
+        </>
+    )
 }
+
 export default App;

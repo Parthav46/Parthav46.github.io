@@ -1,9 +1,33 @@
 .dark {
-  --background-color: #282c34;
-  --color: #fff;
+  --main: #282c34;
+  --main-dark: #171b23;
+  --contrast: #d7d3cb;
+  --contrast-dark: #c6c2ba;
+  --font-color: #fff;
+  --contrast-font-color: #000;
+  --primary: #61dafb;
+  --secondary: #2ea8c8;
 }
 
 .light {
-  --background-color: #fff;
-  --color: #282c34
+  --main: #fff;
+  --main-dark: #eee;
+  --contrast: #282c34;
+  --contrast-dark: #171b23;
+  --font-color: #000;
+  --contrast-font-color: #fff;
+  --primary: #2ea8c8;
+  --secondary: #61dafb;
+}
+
+body {
+  background-color: var(--main);
+}
+
+.base {
+  transition: background-color 0.2s, color 0.2s; /* For fade effect while theme change */
+  background-color: var(--main);
+  font-size: calc(10px + 2vmin);
+  color: var(--font-color);
+  min-height: 100vh;
 }
