@@ -14,17 +14,20 @@ type HeaderProps = {
 function Header({ headers, onHeaderSelect }: HeaderProps) {
 
     return (
-        <header className='Header'>
-            {
-                Object.entries(headers).map(([key, value]) => (
-                    <span
-                        className={value.isSelected && 'selected'}
-                        onClick={() => onHeaderSelect && onHeaderSelect(key)} >
-                        {value.title}
-                    </span>
-                ))
-            }
-        </header>
+        <>
+            <div className="HeaderFill"></div>
+            <header className='Header'>
+                {
+                    Object.entries(headers).map(([key, value]) => (
+                        <span
+                            className={value.isSelected && 'selected'}
+                            onClick={() => onHeaderSelect && onHeaderSelect(key)} >
+                            {value.title}
+                        </span>
+                    ))
+                }
+            </header>
+        </>
     )
 }
 

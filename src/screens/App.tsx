@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ThemeManager from '../components/ThemeManager';
 import Header, { HeaderObjectType } from '../components/Header';
+import { default as PApp } from './Placeholder';
 
 function App ()
 {
@@ -25,9 +26,14 @@ function App ()
     }
 
     return (
-        <ThemeManager>
-            <Header headers={components} onHeaderSelect={focusSection} />
-        </ThemeManager>
+        <>
+        {process.env.NODE_ENV === "production" && <PApp />}
+        {process.env.NODE_ENV !== "production" &&
+            <ThemeManager>
+                <Header headers={components} onHeaderSelect={focusSection} />
+            </ThemeManager>
+        }
+        </>
     )
 }
 

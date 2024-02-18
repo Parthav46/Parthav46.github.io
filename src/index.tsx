@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/index.css';
-import App from './screens/Placeholder';
+import App from './screens/App';
 import reportWebVitals from './utils/reportWebVitals';
 
 const root = ReactDOM.createRoot(

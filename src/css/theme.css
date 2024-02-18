@@ -20,6 +20,10 @@
   --secondary: #61dafb;
 }
 
+body {
+  background-color: var(--main);
+}
+
 .base {
   transition: background-color 0.2s, color 0.2s; /* For fade effect while theme change */
   background-color: var(--main);

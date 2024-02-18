@@ -3,10 +3,15 @@
     flex-direction: row;
     background-color: var(--main-dark);
     height: calc(40px + 2vmin);
+    width: 100vw;
     justify-content: flex-end;
     align-items: stretch;
-    position: sticky;
+    position: fixed;
     top: 0;
+}
+
+.HeaderFill {
+    height: calc(40px + 2vmin);
 }
 
 .Header span {
