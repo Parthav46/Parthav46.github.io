@@ -8,6 +8,8 @@ on:
 
 jobs:
   build:
+    environment:
+      name: sanity
     runs-on: ubuntu-latest
 
     strategy:
