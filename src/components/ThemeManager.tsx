@@ -30,23 +30,25 @@ const ThemeManager = forwardRef(
     ref: ForwardedRef<ThemeManagerRefType>,
   ) => {
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
-    systemTheme.addEventListener('change', (ev: MediaQueryListEvent) => {
-      changeTheme(ev.matches ? Theme.DARK : Theme.LIGHT)
+    systemTheme.addEventListener("change", (ev: MediaQueryListEvent) => {
+      changeTheme(ev.matches ? Theme.DARK : Theme.LIGHT);
     });
-    const [theme, changeTheme] = useState(systemTheme.matches ? Theme.DARK : Theme.LIGHT);
+    const [theme, changeTheme] = useState(
+      systemTheme.matches ? Theme.DARK : Theme.LIGHT,
+    );
 
     const toggleTheme = () => {
       changeTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
-    }
+    };
 
     useImperativeHandle(ref, () => ({
       theme,
       changeTheme,
-      toggleTheme
+      toggleTheme,
     }));
 
     useEffect(() => {
-      theme && localStorage.setItem('theme', theme);
+      theme && localStorage.setItem("theme", theme);
       let body = document.querySelector("body");
       body?.setAttribute("class", "");
       body?.classList.add(theme);
@@ -59,5 +61,6 @@ const ThemeManager = forwardRef(
     );
   },
 );
+ThemeManager.displayName = "ThemeManager";
 
 export default ThemeManager;

@@ -18,6 +18,7 @@ function Header({ headers, onHeaderSelect }: HeaderProps) {
       <header className="Header">
         {Object.entries(headers).map(([key, value]) => (
           <span
+            key={key}
             className={value.isSelected && "selected"}
             onClick={() => onHeaderSelect && onHeaderSelect(key)}
           >
