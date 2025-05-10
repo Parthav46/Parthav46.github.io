@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import logo from "../images/logo.svg";
-import "../css/Placeholder.css";
-import ThemeManager, { ThemeManagerRefType } from "../components/ThemeManager";
+import React, { useRef } from 'react';
+import logo from '../images/logo.svg';
+import '../css/Placeholder.css';
+import ThemeManager, { ThemeManagerRefType } from '../components/ThemeManager';
 
 function App() {
   let themeRef = useRef<ThemeManagerRefType>(null);

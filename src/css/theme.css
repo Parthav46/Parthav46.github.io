@@ -25,7 +25,9 @@ body {
 }
 
 .base {
-  transition: background-color 0.2s, color 0.2s; /* For fade effect while theme change */
+  transition:
+    background-color 0.2s,
+    color 0.2s; /* For fade effect while theme change */
   background-color: var(--main);
   font-size: calc(10px + 2vmin);
   color: var(--font-color);

@@ -1,5 +1,5 @@
-import React from "react";
-import "../css/Header.css";
+import React from 'react';
+import '../css/Header.css';
 
 export type HeaderObjectType = {
   title: String;
@@ -19,7 +19,7 @@ function Header({ headers, onHeaderSelect }: HeaderProps) {
         {Object.entries(headers).map(([key, value]) => (
           <span
             key={key}
-            className={value.isSelected && "selected"}
+            className={value.isSelected && 'selected'}
             onClick={() => onHeaderSelect && onHeaderSelect(key)}
           >
             {value.title}

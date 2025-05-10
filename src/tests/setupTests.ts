@@ -18,7 +18,7 @@ const setup = (): void => {
       dispatchEvent: jest.fn(),
     })),
   });
-}
+};
 
 setup();
 

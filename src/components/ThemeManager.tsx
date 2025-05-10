@@ -5,12 +5,12 @@ import React, {
   useImperativeHandle,
   forwardRef,
   ForwardedRef,
-} from "react";
-import "../css/theme.css";
+} from 'react';
+import '../css/theme.css';
 
 const Theme = {
-  LIGHT: "light",
-  DARK: "dark",
+  LIGHT: 'light',
+  DARK: 'dark',
 };
 
 export type ThemeManagerRefType = {
@@ -25,17 +25,12 @@ type ThemeManagerProps = {
 };
 
 const ThemeManager = forwardRef(
-  (
-    { children, className = "" }: ThemeManagerProps,
-    ref: ForwardedRef<ThemeManagerRefType>,
-  ) => {
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
-    systemTheme.addEventListener("change", (ev: MediaQueryListEvent) => {
+  ({ children, className = '' }: ThemeManagerProps, ref: ForwardedRef<ThemeManagerRefType>) => {
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    systemTheme.addEventListener('change', (ev: MediaQueryListEvent) => {
       changeTheme(ev.matches ? Theme.DARK : Theme.LIGHT);
     });
-    const [theme, changeTheme] = useState(
-      systemTheme.matches ? Theme.DARK : Theme.LIGHT,
-    );
+    const [theme, changeTheme] = useState(systemTheme.matches ? Theme.DARK : Theme.LIGHT);
 
     const toggleTheme = () => {
       changeTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
@@ -48,19 +43,15 @@ const ThemeManager = forwardRef(
     }));
 
     useEffect(() => {
-      theme && localStorage.setItem("theme", theme);
-      let body = document.querySelector("body");
-      body?.setAttribute("class", "");
+      theme && localStorage.setItem('theme', theme);
+      let body = document.querySelector('body');
+      body?.setAttribute('class', '');
       body?.classList.add(theme);
     }, [theme]);
 
-    return (
-      <div className={["base", theme, className.split(" ")].join(" ").trim()}>
-        {children}
-      </div>
-    );
+    return <div className={['base', theme, className.split(' ')].join(' ').trim()}>{children}</div>;
   },
 );
-ThemeManager.displayName = "ThemeManager";
+ThemeManager.displayName = 'ThemeManager';
 
 export default ThemeManager;
