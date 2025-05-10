@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-![Coverage](https://img.shields.io/badge/coverage-0%25-yellow)
+[![Coverage](https://codecov.io/github/Parthav46/Parthav46.github.io/graph/badge.svg?token=IFVW0H366E)](https://codecov.io/github/Parthav46/Parthav46.github.io)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
