@@ -31,7 +31,7 @@ jobs:
     
     - name: Unit Tests
       run: |
-        npm run test -- --watchAll=false
+        npm run test
     
     - name: Lint Check
       run: |
@@ -43,7 +43,9 @@ jobs:
 
     - name: Update Coverage Badge in README
       run: |
+        npm run test -- --coverage
         node scripts/update-coverage-badge.js
+  
     - name: Commit coverage badge update
       run: |
         git config --global user.name 'github-actions[bot]'
