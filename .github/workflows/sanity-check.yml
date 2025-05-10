@@ -31,7 +31,7 @@ jobs:
     
     - name: Unit Tests
       run: |
-        npm run test
+        npm run test -- --watchAll=false
     
     - name: Lint Check
       run: |

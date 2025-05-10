@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchSectionDoc } from '../utils/firestoreHelpers';
 
-const Bio = () => (
-  <section>
-    <h2>About Me</h2>
-    <p>
-      Hi, I&apos;m Parthav! I&apos;m a passionate software developer with experience in building web
-      applications using modern technologies. I love solving problems and learning new things.
-    </p>
-  </section>
-);
+const Bio = () => {
+  const [about, setAbout] = useState('');
+
+  useEffect(() => {
+    const fetchBio = async () => {
+      const data = await fetchSectionDoc('bio');
+      setAbout(data?.about || '');
+    };
+    fetchBio();
+  }, []);
+
+  return (
+    <section>
+      <h2>About Me</h2>
+      <p>{about}</p>
+    </section>
+  );
+};
 
 export default Bio;
